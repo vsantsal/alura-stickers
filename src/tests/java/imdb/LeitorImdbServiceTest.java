@@ -1,8 +1,8 @@
-package tests.imdb;
+package imdb;
 
-import main.imdb.LeitorImdbService;
-import main.imdb.TipoApi;
-import main.utilitarios.IRequisicionavel;
+import imdb.LeitorImdbService;
+import imdb.TipoApi;
+import utilitarios.IRequisicionavel;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
