@@ -17,7 +17,7 @@ public class LeitorPropriedadesTest {
     private Properties propriedades;
 
     public void setUp() {
-        String arquivoConfiguracaoTeste = "src/tests/resources/application.properties";
+        String arquivoConfiguracaoTeste = "src/test/resources/application.properties";
         leitor = new LeitorPropriedades(arquivoConfiguracaoTeste);
         propriedades = leitor.getProps();
     }

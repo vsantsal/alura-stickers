@@ -18,5 +18,6 @@ Dado que o uso da [API do IMDB](https://imdb-api.com/api) demanda a geração de
 
 Como **framework** de testes do projeto, usamos o [JUnit 5](https://junit.org/junit5/).
 
+Antes de prosseguir para as atividades do segundo dia, reorganizamos estrutura de diretórios do projeto e adicionamos arquivo para build e testes.
 
 
