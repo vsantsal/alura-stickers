@@ -1,4 +1,4 @@
-package main.utilitarios;
+package utilitarios;
 
 public interface IRequisicionavel {
     void sendRequisicao(String url);

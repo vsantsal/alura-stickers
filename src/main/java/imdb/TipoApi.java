@@ -1,4 +1,4 @@
-package main.imdb;
+package imdb;
 
 public enum TipoApi {
 

@@ -1,12 +1,12 @@
-package main.imdb;
+package imdb;
 
-import main.utilitarios.IRequisicionavel;
+import utilitarios.IRequisicionavel;
 
 public class LeitorImdbService {
 
     private final IRequisicionavel requisionavel;
-    private TipoApi tipoApi;
-    private String chave;
+    private final TipoApi tipoApi;
+    private final String chave;
 
     public LeitorImdbService(TipoApi tipoApi, String chave, IRequisicionavel requisionavel) {
         this.tipoApi = tipoApi;
