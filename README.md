@@ -1,6 +1,8 @@
 # Alura Stickers - Imersão Java Alura
 
 ![badge_issues](https://img.shields.io/github/issues/vsantsal/alura-stickers)
+![example workflow](https://github.com/vsantsal/alura-stickers/actions/workflows/maven.yml/badge.svg)
+
 
 ## Descrição
 
