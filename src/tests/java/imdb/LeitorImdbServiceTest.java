@@ -1,7 +1,5 @@
 package imdb;
 
-import imdb.LeitorImdbService;
-import imdb.TipoApi;
 import utilitarios.IRequisicionavel;
 
 import org.junit.jupiter.api.Test;
