@@ -8,9 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-
 public class LeitorPropriedadesTest {
 
     private LeitorPropriedades leitor;
@@ -23,7 +20,7 @@ public class LeitorPropriedadesTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"app.nome, imdb", "imdb.key, chave_para_testes"})
+    @CsvSource({"app.nome, nasa", "nasa.key, chave_para_testes"})
     public void testDeveRetornarPropriedadeDisponivelNoArquivo(String chave, String valor){
         this.setUp();
         String propriedade = propriedades.getProperty(chave).toUpperCase();
