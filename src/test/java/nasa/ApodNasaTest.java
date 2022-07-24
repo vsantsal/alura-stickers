@@ -24,7 +24,7 @@ class ApodNasaTest {
         arquivo.delete();
     }
 
-
+    @Test
     public void testExisteArquivoEditadoPorApodNasa(){
 
         ApodNasa apodNasa = new ApodNasa(
