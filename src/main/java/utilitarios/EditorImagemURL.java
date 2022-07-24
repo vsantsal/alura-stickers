@@ -3,23 +3,19 @@ package utilitarios;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class EditorImagem {
+public class EditorImagemURL extends EditorImagemBase {
 
     private final String enderecoImagem;
 
     private Graphics2D graphics2D;
-    private BufferedImage referenciaImagem;
-    private BufferedImage referenciaImagemRedimensionada;
 
-    public EditorImagem(String enderecoImagem) {
+    public EditorImagemURL(String enderecoImagem) {
         this.enderecoImagem = enderecoImagem;
-        processa();
     }
 
     public void processa() {
@@ -36,34 +32,25 @@ public class EditorImagem {
         }
     }
 
-    public void redimensiona(int offsetAltura, int offsetLargura) {
-        this.referenciaImagemRedimensionada = new BufferedImage(
-                referenciaImagem.getWidth() + offsetLargura,
-                referenciaImagem.getHeight() + offsetAltura,
-                BufferedImage.TRANSLUCENT
-        );
-        graphics2D = (Graphics2D) this.referenciaImagemRedimensionada.getGraphics();
-    }
-
-    public void escreveEm(String texto, int x, int y) {
+    public void escreveEm(String texto, int abscissa, int ordenada) {
+        graphics2D = (Graphics2D) this.referenciaImagem.getGraphics();
         var font = new Font(Font.SANS_SERIF, Font.BOLD, 56);
         graphics2D.setFont(font);
         graphics2D.setColor(Color.YELLOW);
         graphics2D.drawString(texto,
-                x,
-                this.referenciaImagemRedimensionada.getHeight() - y);
+                abscissa,
+                ordenada);
     }
 
-    public void salva(String nomeArquivo){
-
+    @Override
+    public void salvaComo(String nomeArquivo) {
         graphics2D.drawImage(this.referenciaImagem, 0, 0, null);
 
         try {
-            ImageIO.write(this.referenciaImagemRedimensionada, "png", new File(nomeArquivo));
+            ImageIO.write(this.referenciaImagem, "png", new File(nomeArquivo));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 

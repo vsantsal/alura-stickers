@@ -1,7 +1,7 @@
 import nasa.LeitorNasaService;
 import nasa.NasaAPI;
-import nasa.RedimensionadorApodNasa;
-import utilitarios.EditorImagem;
+import nasa.ApodNasa;
+import utilitarios.EditorImagemURL;
 import utilitarios.HttpService;
 import utilitarios.LeitorConfiguracoesProjeto;
 import utilitarios.ParseadorJson;
@@ -29,15 +29,16 @@ public class NasaApp {
                 leitorNasaService.obtemTextoResposta()
         );
 
-        RedimensionadorApodNasa redimensionadorApodNasa = new RedimensionadorApodNasa(
-                new EditorImagem(parseadorJson.getValor("url"))
+        ApodNasa redimensionadorApodNasa = new ApodNasa(
+                new EditorImagemURL(parseadorJson.getValor("url"))
         );
 
         String titulo = parseadorJson.getValor("title");
-        redimensionadorApodNasa.salvaImagemRedimensionada(100,
-                0,
+        redimensionadorApodNasa.salvaImagemComTitulo(100,
+                100,
                 titulo,
-                config.getDiretorioArquivos() + titulo + ".png"
+                config.getDiretorioArquivos(),
+                titulo
                 );
 
 

@@ -22,3 +22,12 @@ Como **framework** de testes do projeto, usamos o [JUnit 5](https://junit.org/ju
 
 Antes de prosseguir para as atividades do segundo dia, reorganizamos estrutura de diretórios do projeto e adicionamos arquivo para build e testes.
 
+### Dia 02
+
+O segundo dia da imersão focou o processamento de imagens usando as classes [Buffered Image](https://docs.oracle.com/javase/7/docs/api/java/awt/image/BufferedImage.html) e [Graphics2D](https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics2D.html).
+
+Dos aprendizados da aula, usaremos a leitura da imagem a partir de uma *url* e escrita sobre a imagem para gerar uma nova.
+
+A classe *EditorImagemURL* implementará a interface *IEditorImagem* com essa finalidade no pacote *utilitarios*.
+
+A classe *ApodNasa* lerá imagem da API *APOD*, adicionará o título na imagem e salvará novo arquivo com o título como nome.
