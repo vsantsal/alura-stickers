@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class EditorImagem {
 
-    private String enderecoImagem;
+    private final String enderecoImagem;
 
     private Graphics2D graphics2D;
     private BufferedImage referenciaImagem;
@@ -46,7 +46,7 @@ public class EditorImagem {
     }
 
     public void escreveEm(String texto, int x, int y) {
-        var font = new Font(Font.SANS_SERIF, Font.BOLD, 64);
+        var font = new Font(Font.SANS_SERIF, Font.BOLD, 56);
         graphics2D.setFont(font);
         graphics2D.setColor(Color.YELLOW);
         graphics2D.drawString(texto,
@@ -65,15 +65,6 @@ public class EditorImagem {
         }
 
 
-    }
-
-
-    public static void main(String[] args) {
-        var geradora = new EditorImagem("https://apod.nasa.gov/apod/image/2207/a11pan1040226lftsm.jpg");
-        geradora.processa();
-        geradora.redimensiona(200, 0);
-        geradora.escreveEm("TOPZERA", 100, 100);
-        geradora.salva("src/main/resources/imagem-reprocessada.png");
     }
 
 }

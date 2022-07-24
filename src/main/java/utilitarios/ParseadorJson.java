@@ -26,7 +26,7 @@ public class ParseadorJson {
         }
         catch (NullPointerException e) {
             throw new ParseadorJsonException(
-                    "Não foi encontrada a chave pesquisada" + chave);
+                    "Não foi encontrada a chave pesquisada " + chave);
         }
     }
 

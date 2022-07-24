@@ -4,10 +4,21 @@ import java.util.Properties;
 
 public class LeitorConfiguracoesProjeto {
 
+    private final String ARQUIVO_PROPRIEDADES = "src/main/resources/application.properties";
+    private final LeitorPropriedades leitorPropriedades = new LeitorPropriedades(
+            ARQUIVO_PROPRIEDADES);
+
     public String getChaveNasaAPI(){
-        String ARQUIVO_PROPRIEDADES = "src/main/resources/application.properties";
-        LeitorPropriedades leitorPropriedades = new LeitorPropriedades(ARQUIVO_PROPRIEDADES);
+        return getValor("nasa.key");
+    }
+
+    public String getDiretorioArquivos(){
+        return getValor("diretorio.imagens.caminho");
+    }
+
+    private String getValor(String chave) {
         Properties properties = leitorPropriedades.getProps();
-        return properties.getProperty("nasa.key");
+        return properties.getProperty(chave);
+
     }
 }
