@@ -1,7 +1,10 @@
 import nasa.LeitorNasaService;
 import nasa.NasaAPI;
+import nasa.ApodNasa;
+import utilitarios.EditorImagemURL;
 import utilitarios.HttpService;
 import utilitarios.LeitorConfiguracoesProjeto;
+import utilitarios.ParseadorJson;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,7 +16,7 @@ public class NasaApp {
 
         LeitorConfiguracoesProjeto config = new LeitorConfiguracoesProjeto();
         String chaveApi = config.getChaveNasaAPI();
-        String hoje = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
+        String hoje = LocalDate.now().minusDays(1).format(DateTimeFormatter.ISO_DATE);
 
         LeitorNasaService leitorNasaService = new LeitorNasaService(
                 NasaAPI.APOD,
@@ -21,7 +24,24 @@ public class NasaApp {
                 new HttpService());
 
         leitorNasaService.demandaServico();
-        System.out.println(leitorNasaService.obtemTextoResposta());
+
+        ParseadorJson parseadorJson = new ParseadorJson(
+                leitorNasaService.obtemTextoResposta()
+        );
+
+        ApodNasa redimensionadorApodNasa = new ApodNasa(
+                new EditorImagemURL(parseadorJson.getValor("url"))
+        );
+
+        String titulo = parseadorJson.getValor("title");
+        redimensionadorApodNasa.salvaImagemComTitulo(100,
+                100,
+                titulo,
+                config.getDiretorioArquivos(),
+                titulo
+                );
+
+
     }
 
 }
