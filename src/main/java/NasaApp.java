@@ -15,17 +15,13 @@ public class NasaApp {
         String chaveApi = config.getChaveNasaAPI();
         String hoje = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
 
-        System.out.println(hoje);
-        System.out.println(chaveApi);
-        System.out.println(Map.of("api_key", chaveApi, "date", hoje));
-
         LeitorNasaService leitorNasaService = new LeitorNasaService(
                 NasaAPI.APOD,
                 Map.of("api_key", chaveApi, "date", hoje),
                 new HttpService());
 
-//        leitorNasaService.demandaServico();
-//        System.out.println(leitorNasaService.obtemTextoResposta());
+        leitorNasaService.demandaServico();
+        System.out.println(leitorNasaService.obtemTextoResposta());
     }
 
 }
