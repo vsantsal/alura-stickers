@@ -19,7 +19,7 @@ public class ParseadorJson {
         try {
             jsonNode = objectMapper.readTree(json);
         } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            throw new ParseadorJsonException("Texto Inválido");
         }
         try {
             return jsonNode.get(chave).asText();

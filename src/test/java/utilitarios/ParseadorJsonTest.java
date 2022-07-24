@@ -32,6 +32,19 @@ class ParseadorJsonTest {
         );
     }
 
+    @ParameterizedTest
+    @CsvSource({"abcd, inexistente",
+                "abcd, media_type",
+                "{invalido}, inexistente"})
+    public void testDeveLancarExcecaoAoPesquisarEmTextoInvalido(String textoJsonInvalido,
+                                                                String chave) {
+        ParseadorJson parseadorJson = new ParseadorJson(textoJsonInvalido);
+        assertThrows(
+                ParseadorJsonException.class,
+                () -> parseadorJson.getValor(chave)
+        );
+    }
+
     private String getTextoTeste() {
         String arquivoJsonTest = "src/test/resources/dados-apod-teste.json";
         try (BufferedReader br = new BufferedReader(new FileReader(arquivoJsonTest))) {
